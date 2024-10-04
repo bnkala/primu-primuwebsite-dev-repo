@@ -6,8 +6,6 @@ phases:
        - echo "Installing Node.js"
        - curl -sL https://rpm.nodesource.com/setup_16.x | bash -
        - yum install -y nodejs
-       - echo "Installing PostgreSQL client"
-       - yum install -y postgresql
        - echo "Installing PM2 for process management"
        - npm install -g pm2
   pre_build:
