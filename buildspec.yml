@@ -1,0 +1,36 @@
+version: 0.2
+
+phases:
+  install:
+     commands:
+       - echo "Installing Node.js"
+       - curl -sL https://rpm.nodesource.com/setup_16.x | bash -
+       - yum install -y nodejs
+       - echo "Installing PostgreSQL client"
+       - yum install -y postgresql
+       - echo "Installing PM2 for process management"
+       - npm install -g pm2
+  pre_build:
+     commands:
+       - echo "Installing dependencies"
+       - npm install
+  build:
+     commands:
+       - echo "Building the NestJS app"
+       - npm run build
+  post_build:
+     commands:
+       - echo "Running migrations"
+       - npm run typeorm:migration:run
+       - echo "Starting the application using PM2"
+       - pm2 start dist/main.js --name my-nest-app
+      
+
+artifacts:
+  files:
+    - dist/**
+    - node_modules/**
+
+cache:
+  paths:
+    - node_modules/**
