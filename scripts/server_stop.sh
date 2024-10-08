@@ -1,8 +1,8 @@
 #!/bin/bash
 
-APP_NAME = "backend"
+#APP_NAME = "backend"
 
-PID=$(pgrep -f $APP_NAME)
+PID=$(pgrep -f "backend")
 
 if [ -z "$PID" ]; then
   echo "Nest.js application is not running."
