@@ -29,7 +29,9 @@ artifacts:
     - dist/**
     - node_modules/**
     - appspec.yml
-    - scripts/**
+    - scripts/server_stop.sh
+    - scripts/before_install.sh
+    - scripts/start_server.sh
 
 cache:
   paths:
