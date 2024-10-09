@@ -29,7 +29,7 @@ artifacts:
     - dist/**
     - node_modules/**
     - appspec.yml
-    - scripts/*
+    - scripts/**
 
 cache:
   paths:
